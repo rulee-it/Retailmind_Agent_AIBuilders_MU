@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>RetailMind — Catalog Intelligence on Tap</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700;9..144,900&family=Geist:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/static/styles.css" />
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+  <!-- Grain overlay -->
+  <div class="grain" aria-hidden="true"></div>
+
+  <!-- Top bar -->
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-mark">◐</span>
+      <span class="brand-word">RetailMind</span>
+      <span class="brand-version">v2</span>
+    </div>
+    <nav class="topbar-nav">
+      <a href="#how">how it works</a>
+      <a href="#sample">try a query</a>
+      <a href="#" id="open-chat-top">launch assistant ↗</a>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <p class="eyebrow">
+          <span class="eyebrow-dot"></span>
+          Multi-agent product intelligence · for D2C catalogs
+        </p>
+        <h1 class="display">
+          Catalog intelligence,<br/>
+          <em class="serif-italic">on&nbsp;tap.</em>
+        </h1>
+        <p class="lede">
+          Five specialised agents replace Priya's Monday-morning spreadsheet ritual.
+          A router dispatches your question, four specialists fetch the truth,
+          a supervisor synthesises one prioritised answer.
+        </p>
+        <div class="hero-cta">
+          <button class="btn btn-primary" id="open-chat-hero">
+            <span>Talk to Priya's AI</span>
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M5 12h14M13 5l7 7-7 7"/>
+            </svg>
+          </button>
+          <button class="btn btn-ghost" id="scroll-how">See the architecture</button>
+        </div>
+      </div>
+
+      <div class="hero-diagram" aria-hidden="true">
+        <div class="orbit">
+          <div class="orbit-center">
+            <span class="center-label">Supervisor</span>
+            <span class="center-sub">synthesis</span>
+          </div>
+          <div class="orbit-node n1"><span>Router</span></div>
+          <div class="orbit-node n2"><span>Inventory</span></div>
+          <div class="orbit-node n3"><span>Pricing</span></div>
+          <div class="orbit-node n4"><span>Reviews</span></div>
+          <div class="orbit-node n5"><span>Catalog</span></div>
+          <svg class="orbit-lines" viewBox="0 0 400 400">
+            <circle cx="200" cy="200" r="160" />
+            <circle cx="200" cy="200" r="100" />
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Live snapshot strip -->
+  <section class="snapshot" id="snapshot">
+    <div class="snapshot-label">
+      <span class="num">01</span>
+      <span class="kicker">Live catalog snapshot</span>
+    </div>
+    <div class="snapshot-tiles" id="snapshot-tiles">
+      <div class="tile loading"><span class="tile-key">Total SKUs</span><span class="tile-val">—</span></div>
+      <div class="tile loading"><span class="tile-key">Critical Stock</span><span class="tile-val">—</span></div>
+      <div class="tile loading"><span class="tile-key">Avg Margin</span><span class="tile-val">—</span></div>
+      <div class="tile loading"><span class="tile-key">Avg Rating</span><span class="tile-val">—</span></div>
+    </div>
+  </section>
+
+  <!-- How it works -->
+  <section class="how" id="how">
+    <div class="section-head">
+      <span class="num">02</span>
+      <h2>How the brain wires together.</h2>
+      <p>Three layers. Five LLM calls. Strict tool isolation enforced in code.</p>
+    </div>
+
+    <div class="how-cards">
+      <article class="card card-router">
+        <div class="card-num">i.</div>
+        <h3>Router</h3>
+        <p>An LLM classifies every query into one of six routes — <em>INVENTORY · PRICING · REVIEWS · CATALOG · MULTI · GENERAL</em> — and emits a structured decision. No keywords. No regex.</p>
+        <ul class="card-meta">
+          <li>gpt-4o-mini · temp 0</li>
+          <li>structured output</li>
+        </ul>
+      </article>
+
+      <article class="card card-spec">
+        <div class="card-num">ii.</div>
+        <h3>Specialists</h3>
+        <p>Four scoped agents. Each owns its tools and nothing else. The Inventory agent talks days-to-stockout. Pricing talks margin and percentile. Reviews summarises themes. Catalog returns formatted lists.</p>
+        <ul class="card-meta">
+          <li>2 tools each · 8 total</li>
+          <li>isolation by import</li>
+        </ul>
+      </article>
+
+      <article class="card card-super">
+        <div class="card-num">iii.</div>
+        <h3>Supervisor</h3>
+        <p>For cross-domain questions and the Daily Briefing, a fifth LLM call orchestrates 2+ specialists in parallel and stitches their outputs into one ranked recommendation — with citations.</p>
+        <ul class="card-meta">
+          <li>gpt-4o · no tools</li>
+          <li>ranks by impact</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <!-- Sample queries -->
+  <section class="samples" id="sample">
+    <div class="section-head">
+      <span class="num">03</span>
+      <h2>Try a question.</h2>
+      <p>Click any chip to open the assistant pre-filled.</p>
+    </div>
+    <div class="chips" id="sample-chips">
+      <button class="chip" data-q="Which dresses are low on stock?">Which dresses are low on stock?</button>
+      <button class="chip" data-q="What's the margin on SC011?">What's the margin on SC011?</button>
+      <button class="chip" data-q="Negative review themes in Tops?">Negative review themes in Tops?</button>
+      <button class="chip" data-q="Top performers in Outerwear">Top performers in Outerwear</button>
+      <button class="chip" data-q="Why is SC020 underperforming?">Why is SC020 underperforming?</button>
+      <button class="chip" data-q="Should we discount the Velvet Party Dress?">Should we discount the Velvet Party Dress?</button>
+      <button class="chip" data-q="Stockouts in the next 10 days">Stockouts in the next 10 days</button>
+      <button class="chip" data-q="Compare SC018's price to its category">Compare SC018's price to its category</button>
+    </div>
+  </section>
+
+  <footer class="foot">
+    <div>
+      <span class="brand-mark">◐</span> RetailMind Analytics Pvt. Ltd. — Mumbai
+    </div>
+    <div class="foot-meta">
+      Built for the StyleCraft demo · LangChain · OpenAI · FastAPI
+    </div>
+  </footer>
+
+  <!-- Floating chat icon -->
+  <button class="chat-fab" id="chat-fab" aria-label="Open RetailMind Assistant">
+    <svg viewBox="0 0 28 28" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.6">
+      <path d="M5 7c0-1.1.9-2 2-2h14c1.1 0 2 .9 2 2v10c0 1.1-.9 2-2 2h-9l-5 4v-4H7c-1.1 0-2-.9-2-2V7z"/>
+      <circle cx="11" cy="12" r=".9" fill="currentColor"/>
+      <circle cx="14" cy="12" r=".9" fill="currentColor"/>
+      <circle cx="17" cy="12" r=".9" fill="currentColor"/>
+    </svg>
+    <span class="fab-pulse"></span>
+  </button>
+
+  <!-- Chat panel -->
+  <aside class="chat-panel" id="chat-panel" aria-hidden="true">
+    <header class="chat-header">
+      <div class="chat-title">
+        <span class="chat-mark">◐</span>
+        <div>
+          <h4>RetailMind Assistant</h4>
+          <span class="chat-sub">5 agents · live catalog</span>
+        </div>
+      </div>
+      <div class="chat-actions">
+        <select id="cat-filter" aria-label="Category filter"></select>
+        <button class="icon-btn" id="clear-btn" title="Clear conversation">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M3 6h18M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M5 6l1 14a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2l1-14"/>
+          </svg>
+        </button>
+        <button class="icon-btn" id="close-btn" title="Close">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M6 6l12 12M18 6L6 18"/>
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <div class="chat-stream" id="chat-stream">
+      <!-- Briefing card + messages injected here -->
+    </div>
+
+    <footer class="chat-input-wrap">
+      <form id="chat-form">
+        <textarea id="chat-input" rows="1" placeholder="Ask about stock, margins, reviews, or catalog…"></textarea>
+        <button class="send-btn" type="submit" aria-label="Send">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M5 12h14M13 5l7 7-7 7"/>
+          </svg>
+        </button>
+      </form>
+      <div class="chat-foot">
+        <span>↵ to send · ⇧↵ for newline</span>
+        <span id="route-last"></span>
+      </div>
+    </footer>
+  </aside>
+
+  <div class="chat-scrim" id="chat-scrim" aria-hidden="true"></div>
+
+  <script src="/static/app.js" type="module"></script>
+</body>
+</html>
